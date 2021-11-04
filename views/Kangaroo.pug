@@ -4,9 +4,12 @@ block content
   h1= title
   - results = [{breed: 'Macropus rufus', color: 'red', age: 10}, {breed: 'Macropus giganteus',  color: 'eastern gray', age: 10},{breed: 'Macropus fuliginosus',  color: 'western gray', age: 13} ]
   div(class="container-fluid")
-      each item in results
+      each item,index in results
         div(class="row")
-          div(class="col-sm-2")  #{item.breed}
-          div(class="col-sm-2")  #{item.color}
-          div(class="col-sm-2")  #{item.age}
-  
+          div(class="col-sm-2", onclick=`buy(${index})`)  #{item.breed}
+          div(class="col-sm-2", onclick=`buy(${index})`)  #{item.color}
+          div(class="col-sm-2", onclick=`buy(${index})`)  #{item.age}
+  script. 
+    function buy(index) {
+      alert(`Purchased item ${index + 1}` )
+    }
